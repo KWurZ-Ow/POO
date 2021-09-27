@@ -1,19 +1,25 @@
 <style>
     *{
-        background-color: #202020;
+        background-color: rgb(32, 32, 32);
         color: lime;
+        animation: rainbow 3s infinite;
     }
     *::selection{
         background-color: lime;
-        color: #202020;
+        color: rgb(32, 32, 32);
     }
+
+    @keyframes rainbow {
+            0% {color: red;}
+            25% {color: yellow;}
+            50% {color: cyan;}
+            75% {color: purple;}
+            100% {color: red;}
+        }
 </style>
 <?php
-require_once('src/Character.php');
-require_once('src/Seigneur.php');
-require_once('src/Dame.php');
-require_once('src/Ennemi.php');
-require_once('src/Ennemie.php');
+require_once('src/Autoloader.php');
+Autoloader::register();
 
 $celeborn = new Seigneur("Celeborn");
 echo '<pre>'; print_r($celeborn); echo '</pre>';
