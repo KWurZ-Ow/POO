@@ -10,7 +10,17 @@ class Seigneur
     private $life;
     private $image;
 
-
+    public function __construct(int $id, string $name, string $surname, string $caste, string $knowledge, int $intelligence, int $life)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->caste = $caste;
+        $this->knowledge = $knowledge;
+        $this->intelligence = $intelligence;
+        $this->life = $life;
+        $this->image = '/images/'.strtolower($name).'.jpg';
+    }
     /**
      * Get the value of name
      * @return string
@@ -45,7 +55,7 @@ class Seigneur
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setId(?int $id)
     {
         $this->id = $id;
 
@@ -65,7 +75,7 @@ class Seigneur
      *
      * @return  self
      */ 
-    public function setSurname($surname)
+    public function setSurname(?string $surname)
     {
         $this->surname = $surname;
 
@@ -85,7 +95,7 @@ class Seigneur
      *
      * @return  self
      */ 
-    public function setCaste($caste)
+    public function setCaste(?string $caste)
     {
         $this->caste = $caste;
 
@@ -105,7 +115,7 @@ class Seigneur
      *
      * @return  self
      */ 
-    public function setKnowledge($knowledge)
+    public function setKnowledge(?string $knowledge)
     {
         $this->knowledge = $knowledge;
 
@@ -125,7 +135,7 @@ class Seigneur
      *
      * @return  self
      */ 
-    public function setIntelligence($intelligence)
+    public function setIntelligence(?int $intelligence)
     {
         $this->intelligence = $intelligence;
 
@@ -145,7 +155,7 @@ class Seigneur
      *
      * @return  self
      */ 
-    public function setLife($life)
+    public function setLife(?int $life)
     {
         $this->life = $life;
 
@@ -165,7 +175,7 @@ class Seigneur
      *
      * @return  self
      */ 
-    public function setImage($image)
+    public function setImage(?string $image)
     {
         $this->image = $image;
 
