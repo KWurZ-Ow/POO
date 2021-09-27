@@ -3,11 +3,17 @@
         background-color: #202020;
         color: lime;
     }
+    *::selection{
+        background-color: lime;
+        color: #202020;
+    }
 </style>
 <?php
+require_once('src/Character.php');
 require_once('src/Seigneur.php');
 require_once('src/Dame.php');
 require_once('src/Ennemi.php');
+require_once('src/Ennemie.php');
 
 $celeborn = new Seigneur("Celeborn");
 echo '<pre>'; print_r($celeborn); echo '</pre>';
@@ -21,11 +27,9 @@ echo '<pre>'; print_r($celeborn); echo '</pre>';
 
 $calimethar = new Seigneur("Calimethar");
 echo '<pre>'; print_r($calimethar); echo '</pre>';
-$gorthol = new Seigneur("Gorthol");
-echo '<pre>'; print_r($gorthol); echo '</pre>';
-$elendur = new Seigneur("Elendur");
-echo '<pre>'; print_r($elendur); echo '</pre>';
-$anfauglith = new Seigneur("Anfauglith");
-echo '<pre>'; print_r($anfauglith); echo '</pre>';
 $maeglin = new Dame("Maeglin");
 echo '<pre>'; print_r($maeglin); echo '</pre>';
+$gurthang = new Ennemi("Gurthang");
+echo '<pre>'; print_r($gurthang); echo '</pre>';
+$feanturi = new Ennemie("Feanturi");
+echo '<pre>'; print_r($feanturi); echo '</pre>';

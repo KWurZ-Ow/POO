@@ -1,21 +1,11 @@
 <?php
-class Dame
+class Dame extends Character
 {
-    private $id;
-    private $name;
-    private $surname;
-    private $caste;
-    private $knowledge;
     private $intelligence;
-    private $life;
-    private $image;
 
     public function __construct(string $name)
     {
-        $this->id = 1;
-        $this->name = $name;
-        $this->image = '/images/'.strtolower($name).'.jpg';
-
+        parent::__construct($name);
         switch ($name){
             case 'Maeglin':
                 $this->surname = 'Oeil vif';
@@ -23,12 +13,14 @@ class Dame
                 $this->knowledge = 'Nombres';
                 $this->intelligence = 100;
                 $this->life = 15;
+                break;
             case 'Athelleen':
                 $this->surname = 'Guerriere des flammes';
                 $this->caste = 'Guerriere';
                 $this->knowledge = 'Carthographie';
                 $this->intelligence = 90;
                 $this->life = 14;
+                break;
             case 'Nolofinwë':
                 $this->surname = 'Sagesse';
                 $this->caste = 'Chevalier';
@@ -42,6 +34,7 @@ class Dame
                 $this->knowledge = 'Arts';
                 $this->intelligence = 120;
                 $this->life = 12; 
+                break;
             case 'Anardil':
                 $this->surname = 'Amie du soleil';
                 $this->caste = 'Magicien';
@@ -67,107 +60,6 @@ class Dame
     }
 
     /**
-     * Get the value of name
-     * @return string
-     */ 
-    public function getName() :string
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set the value of name
-     * @param string $name
-     * @return  self
-     */ 
-    public function setName(?string $name) :self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of id
-     */ 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId(?int $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of surname
-     */ 
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
-     * Set the value of surname
-     *
-     * @return  self
-     */ 
-    public function setSurname(?string $surname)
-    {
-        $this->surname = $surname;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of caste
-     */ 
-    public function getCaste()
-    {
-        return $this->caste;
-    }
-
-    /**
-     * Set the value of caste
-     *
-     * @return  self
-     */ 
-    public function setCaste(?string $caste)
-    {
-        $this->caste = $caste;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of knowledge
-     */ 
-    public function getKnowledge()
-    {
-        return $this->knowledge;
-    }
-
-    /**
-     * Set the value of knowledge
-     *
-     * @return  self
-     */ 
-    public function setKnowledge(?string $knowledge)
-    {
-        $this->knowledge = $knowledge;
-
-        return $this;
-    }
-
-    /**
      * Get the value of intelligence
      */ 
     public function getIntelligence()
@@ -180,49 +72,9 @@ class Dame
      *
      * @return  self
      */ 
-    public function setIntelligence(?int $intelligence)
+    public function setIntelligence($intelligence)
     {
         $this->intelligence = $intelligence;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of life
-     */ 
-    public function getLife()
-    {
-        return $this->life;
-    }
-
-    /**
-     * Set the value of life
-     *
-     * @return  self
-     */ 
-    public function setLife(?int $life)
-    {
-        $this->life = $life;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of image
-     */ 
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * Set the value of image
-     *
-     * @return  self
-     */ 
-    public function setImage(?string $image)
-    {
-        $this->image = $image;
 
         return $this;
     }
