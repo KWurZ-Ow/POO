@@ -1,5 +1,5 @@
 <?php
-class Seigneur
+class Ennemi
 {
     private $id;
     private $name;
@@ -17,44 +17,24 @@ class Seigneur
         $this->image = '/images/'.strtolower($name).'.jpg';
 
         switch ($name){
-            case 'Celeborn':
-                $this->surname = 'Arbre d\'argent';
-                $this->caste = 'Archer';
+            case 'Gurthang':
+                $this->surname = 'Fer de la mort';
+                $this->caste = 'Bourreau';
                 $this->knowledge = 'Nombres';
                 $this->intelligence = 100;
                 $this->life = 15;
-            case 'Calimethar':
-                $this->surname = 'Guerrier des lumières';
-                $this->caste = 'Guerrier';
+            case 'Dagnir':
+                $this->surname = 'Tourmenteur';
+                $this->caste = 'Lycantrope';
                 $this->knowledge = 'Carthographie';
                 $this->intelligence = 90;
                 $this->life = 14;
-            case 'Gorthol':
-                $this->surname = 'Haume de terreur';
-                $this->caste = 'Chevalier';
-                $this->knowledge = 'Diplomatie';
+            case 'Aranurth':
+                $this->surname = 'Colère du roi';
+                $this->caste = 'Sorcier';
+                $this->knowledge = 'Sciences';
                 $this->intelligence = 110;
                 $this->life = 13;
-                break;         
-            case 'Elendur':
-                $this->surname = 'Serviteur des étoiles';
-                $this->caste = 'Elfe';
-                $this->knowledge = 'Arts';
-                $this->intelligence = 120;
-                $this->life = 12; 
-            case 'Anfauglith':
-                $this->surname = 'Poussière d\'agonie';
-                $this->caste = 'Magicien';
-                $this->knowledge = 'Sciences';
-                $this->intelligence = 130;
-                $this->life = 11;
-                break;
-            case 'Curambar':
-                $this->surname = 'Maître du destin';
-                $this->caste = 'Erudit';
-                $this->knowledge = 'Lettres';
-                $this->intelligence = 140;
-                $this->life = 10;
                 break;
             default:    
                 $this->surname = null;
@@ -65,6 +45,7 @@ class Seigneur
                 break;
         }
     }
+
     /**
      * Get the value of name
      * @return string

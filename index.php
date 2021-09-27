@@ -1,16 +1,31 @@
+<style>
+    *{
+        background-color: #202020;
+        color: lime;
+    }
+</style>
 <?php
 require_once('src/Seigneur.php');
-$seigneur = new Seigneur(1, "Celeborn", "Arbre d'argent", "Archer", "Nombres", 100, 14);
-echo '<pre>'; print_r($seigneur); echo '</pre>';
-// $seigneur->setId(1)
-// ->setName('Celeborn')
-// ->setSurname("Arbre d'argent")
-// ->setCaste("Archer")
-// ->setKnowledge("Nombres")
-// ->setIntelligence(100)
-// ->setLife(14)
-// ->setImage('/images/celeborn.jpg')
-// ;
-// echo $seigneur->getName();
+require_once('src/Dame.php');
+require_once('src/Ennemi.php');
 
-// echo '<pre>'; print_r($seigneur); echo '</pre>';
+$celeborn = new Seigneur("Celeborn");
+echo '<pre>'; print_r($celeborn); echo '</pre>';
+$celeborn
+->setIntelligence(150)
+->setLife(20)
+;
+echo '<pre>'; print_r($celeborn); echo '</pre>';
+
+// echo '<img src="'.$seigneur->getImage().'"/>';
+
+$calimethar = new Seigneur("Calimethar");
+echo '<pre>'; print_r($calimethar); echo '</pre>';
+$gorthol = new Seigneur("Gorthol");
+echo '<pre>'; print_r($gorthol); echo '</pre>';
+$elendur = new Seigneur("Elendur");
+echo '<pre>'; print_r($elendur); echo '</pre>';
+$anfauglith = new Seigneur("Anfauglith");
+echo '<pre>'; print_r($anfauglith); echo '</pre>';
+$maeglin = new Dame("Maeglin");
+echo '<pre>'; print_r($maeglin); echo '</pre>';

@@ -1,5 +1,5 @@
 <?php
-class Seigneur
+class Dame
 {
     private $id;
     private $name;
@@ -17,40 +17,40 @@ class Seigneur
         $this->image = '/images/'.strtolower($name).'.jpg';
 
         switch ($name){
-            case 'Celeborn':
-                $this->surname = 'Arbre d\'argent';
+            case 'Maeglin':
+                $this->surname = 'Oeil vif';
                 $this->caste = 'Archer';
                 $this->knowledge = 'Nombres';
                 $this->intelligence = 100;
                 $this->life = 15;
-            case 'Calimethar':
-                $this->surname = 'Guerrier des lumières';
-                $this->caste = 'Guerrier';
+            case 'Athelleen':
+                $this->surname = 'Guerriere des flammes';
+                $this->caste = 'Guerriere';
                 $this->knowledge = 'Carthographie';
                 $this->intelligence = 90;
                 $this->life = 14;
-            case 'Gorthol':
-                $this->surname = 'Haume de terreur';
+            case 'Nolofinwë':
+                $this->surname = 'Sagesse';
                 $this->caste = 'Chevalier';
                 $this->knowledge = 'Diplomatie';
                 $this->intelligence = 110;
                 $this->life = 13;
                 break;         
-            case 'Elendur':
-                $this->surname = 'Serviteur des étoiles';
+            case 'Eldalotë':
+                $this->surname = 'Fleur elfique';
                 $this->caste = 'Elfe';
                 $this->knowledge = 'Arts';
                 $this->intelligence = 120;
                 $this->life = 12; 
-            case 'Anfauglith':
-                $this->surname = 'Poussière d\'agonie';
+            case 'Anardil':
+                $this->surname = 'Amie du soleil';
                 $this->caste = 'Magicien';
                 $this->knowledge = 'Sciences';
                 $this->intelligence = 130;
                 $this->life = 11;
                 break;
-            case 'Curambar':
-                $this->surname = 'Maître du destin';
+            case 'Rumil':
+                $this->surname = 'La savante';
                 $this->caste = 'Erudit';
                 $this->knowledge = 'Lettres';
                 $this->intelligence = 140;
@@ -65,6 +65,7 @@ class Seigneur
                 break;
         }
     }
+
     /**
      * Get the value of name
      * @return string
