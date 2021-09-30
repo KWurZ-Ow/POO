@@ -6,59 +6,62 @@ class Dame extends Character
     public function __construct(string $name)
     {
         parent::__construct($name);
-        switch ($name){
-            case 'Maeglin':
-                $this->surname = 'Oeil vif';
-                $this->caste = 'Archer';
-                $this->knowledge = 'Nombres';
-                $this->intelligence = 100;
-                $this->life = 15;
-                break;
-            case 'Athelleen':
-                $this->surname = 'Guerriere des flammes';
-                $this->caste = 'Guerriere';
-                $this->knowledge = 'Carthographie';
-                $this->intelligence = 90;
-                $this->life = 14;
-                break;
-            case 'Nolofinwë':
-                $this->surname = 'Sagesse';
-                $this->caste = 'Chevalier';
-                $this->knowledge = 'Diplomatie';
-                $this->intelligence = 110;
-                $this->life = 13;
-                break;         
-            case 'Eldalotë':
-                $this->surname = 'Fleur elfique';
-                $this->caste = 'Elfe';
-                $this->knowledge = 'Arts';
-                $this->intelligence = 120;
-                $this->life = 12; 
-                break;
-            case 'Anardil':
-                $this->surname = 'Amie du soleil';
-                $this->caste = 'Magicien';
-                $this->knowledge = 'Sciences';
-                $this->intelligence = 130;
-                $this->life = 11;
-                break;
-            case 'Rumil':
-                $this->surname = 'La savante';
-                $this->caste = 'Erudit';
-                $this->knowledge = 'Lettres';
-                $this->intelligence = 140;
-                $this->life = 10;
-                break;
-            default:    
-                $this->surname = null;
-                $this->caste = null;
-                $this->knowledge = null;
-                $this->intelligence = 100;
-                $this->life = 15;
-                break;
-        }
+        $this->selectDame();
     }
 
+    private function selectDame(){
+        $dames = array(
+            'Maeglin' => array(
+                'caste' => 'Archer',
+                'intelligence' => 100,
+                'life' => 14,
+                'surname' => 'Oeil vif',
+                'knowledge' => 'Nombres',
+            ),
+            'Athelleen' => array(
+                'caste' => 'Guerrier',
+                'intelligence' => 90,
+                'life' => 15,
+                'surname' => 'Guerrière des flammes',
+                'knowledge' => 'Cartographie',
+            ),
+            'Nolofinwe' => array(
+                'caste' => 'Chevalier',
+                'intelligence' => 110,
+                'life' => 13,
+                'surname' => 'Sagesse',
+                'knowledge' => 'Diplomatie',
+            ),
+            'Eldalote' => array(
+                'caste' => 'Elfe',
+                'intelligence' => 120,
+                'life' => 12,
+                'surname' => 'Fleur elfique',
+                'knowledge' => 'Arts',
+            ),
+            'Anardil' => array(
+                'caste' => 'Magicien',
+                'intelligence' => 130,
+                'life' => 11,
+                'surname' => 'Amie du soleil',
+                'knowledge' => 'Sciences',
+            ),
+            'Rumil' => array(
+                'caste' => 'Érudit',
+                'intelligence' => 140,
+                'life' => 10,
+                'surname' => 'La savante',
+                'knowledge' => 'Lettres',
+            ),
+        );
+        $name = $this->getName();
+        foreach ($dames[$name] as $key => $value){
+            $method = 'set'.ucfirst($key);
+            if (method_exists($this, $method)){
+                $this->$method($value);
+            }
+        }
+    }
     /**
      * Get the value of intelligence
      */ 

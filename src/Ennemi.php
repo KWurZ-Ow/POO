@@ -6,35 +6,38 @@ class Ennemi extends Character
     public function __construct(string $name)
     {
         parent::__construct($name);
-        switch ($name){
-            case 'Gurthang':
-                $this->surname = 'Fer de la mort';
-                $this->caste = 'Bourreau';
-                $this->knowledge = 'Nombres';
-                $this->wickedness = 100;
-                $this->life = 15;
-                break;
-            case 'Dagnir':
-                $this->surname = 'Tourmenteur';
-                $this->caste = 'Lycantrope';
-                $this->knowledge = 'Carthographie';
-                $this->wickedness = 90;
-                $this->life = 14;
-                break;
-            case 'Aranurth':
-                $this->surname = 'Colère du roi';
-                $this->caste = 'Sorcier';
-                $this->knowledge = 'Sciences';
-                $this->wickedness = 110;
-                $this->life = 13;
-                break;
-            default:    
-                $this->surname = null;
-                $this->caste = null;
-                $this->knowledge = null;
-                $this->wickedness = 100;
-                $this->life = 15;
-                break;
+        $this->selectEnnemis();
+    }
+    private function selectEnnemis(){
+        $ennemis = array(
+            'Gurthang'  => array(
+                'caste' => 'Bourreau',
+                'wickedness' => 90,
+                'life' => 15,
+                'surname' => 'Fer de la mort',
+                'knowledge' => 'Nombres',
+            ),
+            'Dagnir'  => array(
+                'caste' => 'Lycanthrope',
+                'wickedness' => 100,
+                'life' => 14,
+                'surname' => 'Tourmenteur',
+                'knowledge' => 'Cartographie',
+            ),
+            'Aranruth' => array(
+                'caste' => 'Sorcier',
+                'wickedness' => 140,
+                'life' => 10,
+                'surname' => 'Colère du roi',
+                'knowledge' => 'Sciences',
+            ),
+        );
+        $name = $this->getName();
+        foreach ($ennemis[$name] as $key => $value){
+            $method = 'set'.ucfirst($key);
+            if (method_exists($this, $method)){
+                $this->$method($value);
+            }
         }
     }
 

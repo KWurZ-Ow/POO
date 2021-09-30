@@ -2,60 +2,64 @@
 class Seigneur extends Character
 {
     private $intelligence;
+    private $seigneurs = array(
+        'Celeborn' => array(
+            'caste' => 'Archer',
+            'intelligence' => 100,
+            'life' => 14,
+            'surname' => "Arbre d'argent",
+            'knowledge' => 'Nombres',
+        ),
+        'Calimehtar' => array(
+            'caste' => 'Guerrier',
+            'intelligence' => 90,
+            'life' => 15,
+            'surname' => "Guerrier de lumière",
+            'knowledge' => 'Cartographie',
+        ),
+        'Gorthol' => array(
+            'caste' => 'Chevalier',
+            'intelligence' => 110,
+            'life' => 13,
+            'surname' => "Haume de terreur",
+            'knowledge' => 'Diplomatie',
+        ),
+        'Elendur' => array(
+            'caste' => 'Elfe',
+            'intelligence' => 120,
+            'life' => 12,
+            'surname' => "Serviteur des étoiles",
+            'knowledge' => 'Arts',
+        ),
+        'Anfauglith' => array(
+            'caste' => 'Magicien',
+            'intelligence' => 130,
+            'life' => 11,
+            'surname' => "Poussière d'agonie",
+            'knowledge' => 'Sciences',
+        ),
+        'Turambar' => array(
+            'caste' => 'Erudit',
+            'intelligence' => 140,
+            'life' => 10,
+            'surname' => "Maître du destin",
+            'knowledge' => 'Lettres',
+        )
+    );
 
     public function __construct(string $name)
     {
         parent::__construct($name);
-        switch ($name){
-            case 'Celeborn':
-                $this->surname = 'Arbre d\'argent';
-                $this->caste = 'Archer';
-                $this->knowledge = 'Nombres';
-                $this->intelligence = 100;
-                $this->life = 15;
-                break;
-            case 'Calimethar':
-                $this->surname = 'Guerrier des lumières';
-                $this->caste = 'Guerrier';
-                $this->knowledge = 'Carthographie';
-                $this->intelligence = 90;
-                $this->life = 14;
-                break;
-            case 'Gorthol':
-                $this->surname = 'Haume de terreur';
-                $this->caste = 'Chevalier';
-                $this->knowledge = 'Diplomatie';
-                $this->intelligence = 110;
-                $this->life = 13;
-                break;         
-            case 'Elendur':
-                $this->surname = 'Serviteur des étoiles';
-                $this->caste = 'Elfe';
-                $this->knowledge = 'Arts';
-                $this->intelligence = 120;
-                $this->life = 12; 
-                break;
-            case 'Anfauglith':
-                $this->surname = 'Poussière d\'agonie';
-                $this->caste = 'Magicien';
-                $this->knowledge = 'Sciences';
-                $this->intelligence = 130;
-                $this->life = 11;
-                break;
-            case 'Curambar':
-                $this->surname = 'Maître du destin';
-                $this->caste = 'Erudit';
-                $this->knowledge = 'Lettres';
-                $this->intelligence = 140;
-                $this->life = 10;
-                break;
-            default:    
-                $this->surname = null;
-                $this->caste = null;
-                $this->knowledge = null;
-                $this->intelligence = 100;
-                $this->life = 15;
-                break;
+        $this->selectSeigneur();
+    }
+
+    private function selectSeigneur(){
+        $name = $this->getName();
+        foreach ($this->seigneurs[$name] as $key => $value){
+            $method = 'set'.ucfirst($key);
+            if (method_exists($this, $method)){
+                $this->$method($value);
+            }
         }
     }
 
